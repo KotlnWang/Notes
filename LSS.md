@@ -39,8 +39,8 @@ def create_frustum(self):
 ```
 * 获取特征提取后对应的车身坐标系。消除数据增强对映射视锥（3D网格）的影响，并将原图像坐标系（xs,  ys, ds）转为相机坐标，最后通过相机内外参转为ego坐标系（X，Y，Z）
 
+![image-20230107155741530](./LSS.assets/image-20230107155741530.png)
 
-![image-20230107155741530](D:\Kotlin\Notes\LSS.assets\image-20230107155741530.png)
 ```
 def get_geometry(self, rots, trans, intrins, post_rots, post_trans):
 	"""Determine the (x,y,z) locations (in the ego frame)
@@ -131,7 +131,7 @@ new_x = depth.unsqueeze(1) * x[:, self.D:(self.D + self.C)].unsqueeze(2)  # (bs 
 
 2D到3D部分的转换实现逻辑如下图所示（其中α ，c分别代表深度估计网络预测出来的深度概率密度以及语义特征信息）
 
-![image-20230107172539124](D:\Kotlin\Notes\LSS.assets\image-20230107172539124.png)
+![image-20230107172539124](./LSS.assets/image-20230107172539124.png)
 
 **3. 利用体素池化根据BEV空间下的坐标点以及视锥特征构建BEV空间特征**
 
@@ -209,7 +209,7 @@ class QuickCumsum(torch.autograd.Function):
         return x, geom_feats
 ```
 
-![图片](D:\Kotlin\Notes\LSS.assets\640.png)
+![640](./LSS.assets/640.png)
 
 **4. 对输出的BEV特征利用BEV Encoder模块完成多尺度特征的提取和融合，融合后的特征用于完成地图分割任务；**
 
@@ -252,7 +252,7 @@ Step4: Up2(output') -> final = (bs, 1, 200, 200)
 
 1. 存在残影；
 
-   ![image-20230107174646145](D:\Kotlin\Notes\LSS.assets\image-20230107174646145.png)
+   ![image-20230107174646145](./LSS.assets/image-20230107174646145.png)
 
 2. 直接采用16倍特征提取进行映射是否可行；
 
