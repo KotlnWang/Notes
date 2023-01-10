@@ -1,16 +1,8 @@
-pipeline：深度学习的操作流水线，从数据、模型、损失函数、优化、训练、推理整个流程。
+# Delving into the Devils of Bird’s-eye-view Perception: A Review, Evaluation and Recipe
 
-LET-3D-APL：允许预测边界框的纵向定位误差达到给定的容差。 通过使用定位亲和力缩放精度来惩罚纵向定位错误。
+Paper：http://arxiv.org/abs/2209.05324
 
-![image-20230109153332825](./BEV-Survey.assets/image-20230109153332825.png)
-
-其中 $pL(r)$ 表示纵向亲和力加权精度值，$p(r)$ 表示召回 r 时的精度值，乘数$\bar{a}_l$是所有被视为 TP（真阳性）的匹配预测的平均纵向亲和力。
-
-mAP： 类似于 2D 目标检测中众所周知的 AP 度量，但匹配策略从 IoU 替换为 BEV 平面上的 2D 中心距离。 AP是在不同的距离阈值下计算的：0.5、1、2和4米。
-
-NDS：nuScenes 检测分数 (NDS) 是几个指标的组合：mAP、mATE（平均转换误差）、mASE（平均比例误差）、mAOE（平均方向误差）、mAVE（平均速度误差）和 mAAE（平均属性误差） . NDS 是通过使用上述指标的权重和来计算的。 mAP 的权重为 5，其余为 1。在第一步中，TPerror 被转换为 TPscore，如等式 1 所示。 2，然后等式3 定义了NDS：
-
-![image-20230109153957849](./BEV-Survey.assets/image-20230109153957849.png)
+Github：[OpenPerceptionX/BEVPerception-Survey-Recipe: Awesome BEV perception papers and cookbook for achieving SOTA results (github.com)](https://github.com/OpenPerceptionX/BEVPerception-Survey-Recipe)
 
 ### BEV优势
 
@@ -126,3 +118,19 @@ LSS引入了 2D-3D 方法，它预测 2D 特征上每个网格的深度分布，
 1. 简单地翻转图像、地面实况和相机参数。
 
 2. 翻转图像顺序以保持图像之间重叠区域的连贯性，这类似于对称翻转整个 3D 空间。
+
+### 补充：
+
+pipeline：深度学习的操作流水线，从数据、模型、损失函数、优化、训练、推理整个流程。
+
+LET-3D-APL：允许预测边界框的纵向定位误差达到给定的容差。 通过使用定位亲和力缩放精度来惩罚纵向定位错误。
+
+![image-20230109153332825](./BEV-Survey.assets/image-20230109153332825.png)
+
+其中 $pL(r)$ 表示纵向亲和力加权精度值，$p(r)$ 表示召回 r 时的精度值，乘数$\bar{a}_l$是所有被视为 TP（真阳性）的匹配预测的平均纵向亲和力。
+
+mAP： 类似于 2D 目标检测中众所周知的 AP 度量，但匹配策略从 IoU 替换为 BEV 平面上的 2D 中心距离。 AP是在不同的距离阈值下计算的：0.5、1、2和4米。
+
+NDS：nuScenes 检测分数 (NDS) 是几个指标的组合：mAP、mATE（平均转换误差）、mASE（平均比例误差）、mAOE（平均方向误差）、mAVE（平均速度误差）和 mAAE（平均属性误差） . NDS 是通过使用上述指标的权重和来计算的。 mAP 的权重为 5，其余为 1。在第一步中，TPerror 被转换为 TPscore，如等式 1 所示。 2，然后等式3 定义了NDS：
+
+![image-20230109153957849](./BEV-Survey.assets/image-20230109153957849.png)
