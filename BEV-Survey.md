@@ -24,7 +24,7 @@ Github：[OpenPerceptionX/BEVPerception-Survey-Recipe: Awesome BEV perception pa
 
 ![image-20230109190020283](./BEV-Survey.assets/image-20230109190020283.png)
 
-其中$\mathcal{F}_{2D}$表示二维特征，$\mathcal{I}$表示图像，$M_{feat}$表示二维特征提取器（通常作为Backbone和 FPN），$u, v$ 表示二维平面上的坐标，$*$表示一个或多个图像和相应的二维特征。
+其中 $\mathcal{F}_{2D}$表示二维特征， $\mathcal{I}$表示图像， $M_{feat}$表示二维特征提取器（通常作为Backbone和 FPN）， $u, v$ 表示二维平面上的坐标， $*$表示一个或多个图像和相应的二维特征。
 
 #### View Transform模块
 
@@ -32,7 +32,7 @@ Github：[OpenPerceptionX/BEVPerception-Survey-Recipe: Awesome BEV perception pa
 
  ![image-20230110110925240](./BEV-Survey.assets/image-20230110110925240.png)
 
-其中$\mathcal{F}_{3D}$表示 3D（或体素）特征，$x, y, z$ 表示 3D 空间中的坐标，$M_{trans}$ 表示视图变换模块，$\hat{u}, \hat{v}$ 表示根据$x, y, z$ 的相应 2D 坐标（请注意，这可能会有所不同取决于特定的视图变换方法），$\left[ \begin{matrix} R & T \end{matrix} \right] \tag{3}$和 $K$是相机外部和内部参数。
+其中 $\mathcal{F}_{3D}$表示 3D（或体素）特征， $x, y, z$ 表示 3D 空间中的坐标， $M_{trans}$ 表示视图变换模块， $\hat{u}, \hat{v}$ 表示根据 $x, y, z$ 的相应 2D 坐标（请注意，这可能会有所不同取决于特定的视图变换方法）， $\left[ \begin{matrix} R & T \end{matrix} \right] \tag{3}$和 $K$是相机外部和内部参数。
 
 ![image-20230110144854197](./BEV-Survey.assets/image-20230110144854197.png)
 
@@ -45,7 +45,7 @@ LSS引入了 2D-3D 方法，它预测 2D 特征上每个网格的深度分布，
 
 ![image-20230110123806594](./BEV-Survey.assets/image-20230110123806594.png)
 
-其中$D^∗(\hat{u}, \hat{v})$表示在$\hat{u}, \hat{v}$ 处的预测深度值或分布，而$\bigotimes$表示外部生产或类似操作。
+其中 $D^∗(\hat{u}, \hat{v})$表示在 $\hat{u}, \hat{v}$ 处的预测深度值或分布，而 $\bigotimes$表示外部生产或类似操作。
 
 在 LSS之后，还有另一项工作遵循将深度制定为 bin-wise 分布的相同想法，即 CaDDN。 CaDDN使用类似的网络来预测深度分布（分类深度分布），将体素空间特征压缩到BEV空间，最后进行3D检测。 LSS和 CaDDN的主要区别在于，CaDDN使用深度地面真值来监督其分类深度分布预测，因此具有优越的深度网络从 2D 空间中提取 3D 信息。声称“更好的深度网络”实际上是在特征级别学习路面和透视图之间的隐式投影。
 
@@ -55,7 +55,7 @@ LSS引入了 2D-3D 方法，它预测 2D 特征上每个网格的深度分布，
 
 ![image-20230110143822485](./BEV-Survey.assets/image-20230110143822485.png)
 
-其中$q, k, v$代表查询，键和值，$P_{xyz}$是体素空间中预定义的锚点。一些方法利用相机参数将 $P_{xyz}$ 投影到图像平面以实现模型的快速收敛。
+其中 $q, k, v$代表查询，键和值， $P_{xyz}$是体素空间中预定义的锚点。一些方法利用相机参数将 $P_{xyz}$ 投影到图像平面以实现模型的快速收敛。
 
 #### 3D解码器
 
@@ -127,7 +127,7 @@ LET-3D-APL：允许预测边界框的纵向定位误差达到给定的容差。 
 
 ![image-20230109153332825](./BEV-Survey.assets/image-20230109153332825.png)
 
-其中 $pL(r)$ 表示纵向亲和力加权精度值，$p(r)$ 表示召回 r 时的精度值，乘数$\bar{a}_l$是所有被视为 TP（真阳性）的匹配预测的平均纵向亲和力。
+其中 $pL(r)$ 表示纵向亲和力加权精度值， $p(r)$ 表示召回 r 时的精度值，乘数 $\bar{a}_l$是所有被视为 TP（真阳性）的匹配预测的平均纵向亲和力。
 
 mAP： 类似于 2D 目标检测中众所周知的 AP 度量，但匹配策略从 IoU 替换为 BEV 平面上的 2D 中心距离。 AP是在不同的距离阈值下计算的：0.5、1、2和4米。
 
