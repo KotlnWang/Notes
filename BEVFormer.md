@@ -11,7 +11,7 @@
 
 ### BEV查询向量
 
-预定义了一组网格形状的可学习参数 $Q\in\mathbb{R}^{H\times W\times C}$作为BEVFormer的查询向量，其中$H, W$为 BEV 平面的空间形状。其中，位于${Q}$的$p=(x, y)$处的查询$Q_p\in\mathbb{R}^{1\times C}$负责BEV平面中对应的网格单元区域。
+预定义了一组网格形状的可学习参数 $Q\in\mathbb{R}^{H\times W\times C}$作为BEVFormer的查询向量，其中$H, W$为 BEV 平面的空间形状。其中，位于 $Q$的$p=(x, y)$处的查询$Q_p\in\mathbb{R}^{1\times C}$负责BEV平面中对应的网格单元区域。
 
 ![image-20230117150704942](./BEVFormer.assets/image-20230117150704942.png)
 
