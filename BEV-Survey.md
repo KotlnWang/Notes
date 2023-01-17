@@ -24,7 +24,7 @@ Github：[OpenPerceptionX/BEVPerception-Survey-Recipe: Awesome BEV perception pa
 
 ![image-20230109190020283](./BEV-Survey.assets/image-20230109190020283.png)
 
-其中 $\mathcal{F}_{2D}$ 表示二维特征， $\mathcal{I}$ 表示图像， $M_{feat}$ 表示二维特征提取器（通常作为Backbone和 FPN）， $u, v$ 表示二维平面上的坐标， $*$表示一个或多个图像和相应的二维特征。
+其中$\mathcal{F}_{2D}$表示二维特征，$\mathcal{I}$表示图像，$M_{feat}$表示二维特征提取器（通常作为Backbone和 FPN）， $u, v$ 表示二维平面上的坐标， $*$表示一个或多个图像和相应的二维特征。
 
 #### View Transform模块
 
