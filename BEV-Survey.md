@@ -4,11 +4,33 @@ Paper：http://arxiv.org/abs/2209.05324
 
 Github：[OpenPerceptionX/BEVPerception-Survey-Recipe: Awesome BEV perception papers and cookbook for achieving SOTA results (github.com)](https://github.com/OpenPerceptionX/BEVPerception-Survey-Recipe)
 
-### BEV优势
+### BEV
+
+#### BEV优势
 
 * 摄像头能识别较远距离；
 * 能识别颜色；
 * BEV能很好对不同模态进行融合；
+
+#### 多视角融合方式
+
+* 后融合（结果）将检测的结果进行融合；
+* 前融合（数据）将多视角进行融合；
+* 特征融合；
+
+#### 特征融合的问题
+
+![image-20230205111835017](./BEV-Survey.assets/image-20230205111835017.png)
+
+* 自车运动补偿：不同时刻的对齐。对特征点学习x，y两个偏移量；
+*  时间差异
+* 空间差异：多特征映射（相机参数）到同一坐标系，通过偏移量矫正空间特征对齐；
+
+#### BEV创建
+
+![image-20230205124336158](./BEV-Survey.assets/image-20230205124336158.png)
+
+创建一个网格（特征空间），向里面填充特征；形成3D空间
 
 ### Camera-only 3D 感知
 
@@ -134,3 +156,4 @@ mAP： 类似于 2D 目标检测中众所周知的 AP 度量，但匹配策略�
 NDS：nuScenes 检测分数 (NDS) 是几个指标的组合：mAP、mATE（平均转换误差）、mASE（平均比例误差）、mAOE（平均方向误差）、mAVE（平均速度误差）和 mAAE（平均属性误差） . NDS 是通过使用上述指标的权重和来计算的。 mAP 的权重为 5，其余为 1。在第一步中，TPerror 被转换为 TPscore，如等式 1 所示。 2，然后等式3 定义了NDS：
 
 ![image-20230109153957849](./BEV-Survey.assets/image-20230109153957849.png)
+
